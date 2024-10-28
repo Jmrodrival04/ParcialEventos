@@ -1,0 +1,26 @@
+<!-- res/layout/activity_main.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/buttonEjercicio1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ejercicio 1: Lista de Tareas" />
+
+    <Button
+        android:id="@+id/buttonEjercicio4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ejercicio 4: Lista de la Compra" />
+
+    <Button
+        android:id="@+id/buttonEjercicio6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ejercicio 6: Sistema de Tareas Avanzado" />
+</LinearLayout>

@@ -1,0 +1,59 @@
+<!-- res/layout/activity_lista_compra.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextProductName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/product_name_hint"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextProductQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/product_quantity_hint"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextProductPrice"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/product_price_hint"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/buttonAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_product"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/textViewSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonBackToMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_menu"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

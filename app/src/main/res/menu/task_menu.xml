@@ -1,0 +1,9 @@
+<!-- res/menu/task_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_done"
+        android:title="Hecho" />
+    <item
+        android:id="@+id/menu_delete"
+        android:title="Eliminar" />
+</menu>

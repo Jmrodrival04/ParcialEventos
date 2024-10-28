@@ -1,0 +1,41 @@
+<!-- res/layout/activity_registro_tarea.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/task_title_hint"
+        android:inputType="text"
+        android:autofillHints="name" />
+
+    <EditText
+        android:id="@+id/editTextTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/task_description_hint"
+        android:inputType="text"
+        android:autofillHints="none" />
+
+    <Button
+        android:id="@+id/buttonSaveTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_task"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonBackToMisTareas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_tasks"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

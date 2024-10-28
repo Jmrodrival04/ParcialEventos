@@ -1,0 +1,26 @@
+<resources>
+    <!-- Strings for RegistroTareaActivity (Ejercicio 6) -->
+    <string name="task_title_hint">Título de la tarea</string>
+    <string name="task_description_hint">Descripción de la tarea</string>
+    <string name="save_task">Guardar Tarea</string>
+    <string name="back_to_tasks">Volver a Mis Tareas</string>
+
+    <!-- Strings for ListaCompraActivity (Ejercicio 4) -->
+    <string name="product_name_hint">Nombre del producto</string>
+    <string name="product_quantity_hint">Cantidad</string>
+    <string name="product_price_hint">Precio</string>
+    <string name="add_product">Añadir Producto</string>
+    <string name="summary_text">Resumen</string>
+    <string name="back_to_menu">Volver al Menú</string>
+
+    <!-- Strings for TareasActivity (Ejercicio 1) -->
+    <string name="task_hint">Escribe tu tarea</string>
+    <string name="add_task">Añadir Tarea</string>
+    <string name="pending_tasks">Pendientes</string>
+    <string name="done_tasks">Hechas</string>
+    <string name="mark_done">Marcar como hecha</string>
+    <string name="delete_task">Eliminar</string>
+    <string name="task_done_message">Tarea marcada como hecha</string>
+    <string name="task_returned_message">Tarea devuelta a pendientes</string>
+    <string name="task_deleted_message">Tarea eliminada</string>
+</resources>
