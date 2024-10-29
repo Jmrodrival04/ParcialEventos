@@ -51,11 +51,11 @@ public class TareasActivity extends AppCompatActivity {
             }
         });
 
-        listViewTasks.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        // Cambiar a onItemClickListener para mostrar el PopupMenu al hacer clic
+        listViewTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 showPopupMenu(view, position);
-                return true;
             }
         });
 
@@ -154,4 +154,3 @@ public class TareasActivity extends AppCompatActivity {
         tasksAdapter.notifyDataSetChanged();
     }
 }
-
