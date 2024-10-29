@@ -1,10 +1,8 @@
 package com.example.parcialeventos;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +11,6 @@ public class ListaTareasActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewTasks;
     private TaskAdapter taskAdapter;
-    private Button buttonBackToMisTareas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,26 +25,16 @@ public class ListaTareasActivity extends AppCompatActivity {
         recyclerViewTasks = findViewById(R.id.recyclerViewTasks);
         recyclerViewTasks.setLayoutManager(new LinearLayoutManager(this));
 
+        // Inicializa el adaptador con una lista de tareas
         taskAdapter = new TaskAdapter(RegistroTareaActivity.taskList, this);
         recyclerViewTasks.setAdapter(taskAdapter);
-
-        buttonBackToMisTareas = findViewById(R.id.buttonBackToMisTareas);
-
-        // Configuración del botón "Volver a Mis Tareas"
-        buttonBackToMisTareas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ListaTareasActivity.this, MisTareas2Activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
+    // Anulación del método para manejar el botón de retroceso en el ActionBar
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish();
+            finish(); // Cierra la actividad y vuelve a la anterior
             return true;
         }
         return super.onOptionsItemSelected(item);
