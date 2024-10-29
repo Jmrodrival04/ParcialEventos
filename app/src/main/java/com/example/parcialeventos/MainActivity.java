@@ -9,17 +9,20 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.QuerySnapshot;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonEjercicio1, buttonEjercicio4, buttonEjercicio6;
     private FirebaseAnalytics firebaseAnalytics;
-    private DatabaseReference databaseReference;
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         // Inicializar Firebase Analytics
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-        // Inicializar la referencia a la base de datos de Firebase
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        // Inicializar Firestore
+        firestore = FirebaseFirestore.getInstance();
 
         // Registrar un evento en Firebase Analytics
         Bundle bundle = new Bundle();
@@ -63,23 +66,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Ejemplo de lectura de datos de Firebase Realtime Database
-        readDataFromFirebase();
+        // Ejemplo de escritura en Firebase Firestore
+        writeDataToFirestore();
+
+        // Ejemplo de lectura de datos desde Firebase Firestore
+        readDataFromFirestore();
     }
 
-    // Método para leer datos de Firebase Realtime Database
-    private void readDataFromFirebase() {
-        databaseReference.child("exampleNode").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String data = dataSnapshot.getValue(String.class);
-                Log.d("FirebaseData", "Data from Firebase: " + data);
-            }
+    // Método para escribir datos en Firestore
+    private void writeDataToFirestore() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("name", "Sample Item");
+        data.put("description", "This is a sample description");
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("FirebaseData", "Error al leer datos de Firebase", databaseError.toException());
-            }
-        });
+        // Agregar datos a una colección llamada "exampleCollection"
+        firestore.collection("exampleCollection").add(data)
+                .addOnSuccessListener(documentReference -> Log.d("FirestoreData", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                .addOnFailureListener(e -> Log.e("FirestoreData", "Error adding document", e));
+    }
+
+    // Método para leer datos desde Firestore
+    private void readDataFromFirestore() {
+        firestore.collection("exampleCollection")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (DocumentSnapshot document : task.getResult()) {
+                            Log.d("FirestoreData", document.getId() + " => " + document.getData());
+                        }
+                    } else {
+                        Log.e("FirestoreData", "Error getting documents", task.getException());
+                    }
+                });
     }
 }

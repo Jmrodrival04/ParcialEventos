@@ -33,6 +33,7 @@ android {
 dependencies {
     // Firebase BoM (gestiona automáticamente las versiones de Firebase)
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation ("com.google.firebase:firebase-firestore")
 
     // Agrega las dependencias de Firebase que deseas usar en tu proyecto
     implementation("com.google.firebase:firebase-analytics")
